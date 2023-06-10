@@ -69,3 +69,42 @@ resource "aws_internet_gateway" "oblimanual-ig" {
     Name = "oblimanual-ig"
   }
 }
+
+########################
+#Creamos tabla de ruteo#
+########################
+
+resource "aws_route_table" "oblimanual-rt" {
+  vpc_id = aws_vpc.oblimanual.id
+
+  tags = {
+    Name = "oblimanual-rt"
+  }
+}
+
+#Agregamos ruta por defecto para que pueda salir por el internet gateway
+
+resource "aws_route" "oblimanual-default-route" {
+  route_table_id         = aws_route_table.oblimanual-rt.id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.oblimanual-ig.id
+}
+
+#Asociamos subnets a la tabla de ruteo
+
+resource "aws_route_table_association" "oblimanual-rt-assoc" {
+  subnet_id      = aws_subnet.oblimanual-subnet1-privada.id
+  route_table_id = aws_route_table.oblimanual-rt.id
+}
+resource "aws_route_table_association" "oblimanual-rt-assoc" {
+  subnet_id      = aws_subnet.oblimanual-subnet1-publica.id
+  route_table_id = aws_route_table.oblimanual-rt.id
+}
+resource "aws_route_table_association" "oblimanual-rt-assoc" {
+  subnet_id      = aws_subnet.oblimanual-subnet2-privada.id
+  route_table_id = aws_route_table.oblimanual-rt.id
+}
+resource "aws_route_table_association" "oblimanual-rt-assoc" {
+  subnet_id      = aws_subnet.oblimanual-subnet2-publica.id
+  route_table_id = aws_route_table.oblimanual-rt.id
+}
