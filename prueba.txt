@@ -5,3 +5,4 @@ nuevamente probamos
 te hago
 bueno llegue, voy a tratar de replicar eso que hicimo
 prueba exitosa de commit
+Debemos mejorar el codigo sumando variables
