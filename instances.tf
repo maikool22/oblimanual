@@ -25,7 +25,7 @@ resource "aws_instance" "oblimanual-inst1" {
       "sudo systemctl start httpd",                # arranco el servicio httpd
       "sudo systemctl start httpd",                # dejo habilitado el servicio httpd
       "sudo touch /var/www/html/index.html",       # creo el index.html vacio
-      "sudo chmod 777 /var/www/html/index.html",   # cambio permisos
+      "sudo chmod 666 /var/www/html/index.html",   # cambio permisos
       "sudo echo nodo1 > /var/www/html/index.html" # hago un echo con el nombre del nodo y se lo pongo en el archivo
     ]
   }
@@ -57,7 +57,7 @@ resource "aws_instance" "oblimanual-inst2" {
       "sudo systemctl start httpd",                # arranco el servicio httpd
       "sudo systemctl start httpd",                # dejo habilitado el servicio httpd
       "sudo touch /var/www/html/index.html",       # creo el index.html vacio
-      "sudo chmod 777 /var/www/html/index.html",   # cambio permisos
+      "sudo chmod 666 /var/www/html/index.html",   # cambio permisos
       "sudo echo nodo2 > /var/www/html/index.html" # hago un echo con el nombre del nodo y se lo pongo en el archivo
     ]
   }
