@@ -17,7 +17,7 @@ resource "aws_instance" "oblimanual-inst2" {
 }
 
 
-
+/*
 connection {
   type        = "ssh"
   user        = "ec2-user"
@@ -36,3 +36,4 @@ provisioner "remote-exec" {
   ]
 }
 
+*/
