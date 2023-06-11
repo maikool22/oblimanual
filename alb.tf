@@ -1,4 +1,4 @@
-resource "aws_lb" "oblimanual-alb" {
+resource "aws_lb" "obli-alb" {
   name               = "oblimanual-alb"
   internal           = false
   load_balancer_type = "application"
@@ -10,7 +10,7 @@ resource "aws_lb" "oblimanual-alb" {
 # Creamos Listener
 
 resource "aws_lb_listener" "oblimanual-listener" {
-  load_balancer_arn = aws_lb.oblimanual-alb.arn
+  load_balancer_arn = aws_lb.obli-alb.arn
   port              = 80
   protocol          = "HTTP"
 
