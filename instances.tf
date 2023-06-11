@@ -16,11 +16,7 @@ resource "aws_instance" "oblimanual-inst2" {
   vpc_security_group_ids = [aws_security_group.oblimanual-sg]
 }
 
-user_data = <<-EOF
-              #!/bin/bash
-              sudo yum update -y
-              sudo yum install -y vim bind-utils
-              EOF
+
 
 connection {
   type        = "ssh"
