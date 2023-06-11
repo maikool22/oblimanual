@@ -4,6 +4,7 @@ resource "aws_instance" "oblimanual-inst1" {
   ami                    = var.ami-id
   instance_type          = "t2.micro"
   key_name               = "vockey"
+  subnet_id = aws_subnet.oblimanual-subnet1-publica.id
   vpc_security_group_ids = [aws_security_group.oblimanual-sg]
 }
 
@@ -11,6 +12,7 @@ resource "aws_instance" "oblimanual-inst2" {
   ami                    = var.ami-id
   instance_type          = "t2.micro"
   key_name               = "vockey"
+  subnet_id = aws_subnet.oblimanual-subnet2-publica.id
   vpc_security_group_ids = [aws_security_group.oblimanual-sg]
 }
 # Forma por la cual accederemos a ellas
