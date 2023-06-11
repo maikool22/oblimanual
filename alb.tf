@@ -4,7 +4,7 @@ resource "aws_lb" "oblimanual-alb" {
   name               = "oblimanual-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.oblimanual-sg]
+  security_groups    = [aws_security_group.oblimanual-sg.id]
   subnets            = [aws_subnet.oblimanual-subnet1-publica.id, aws_subnet.oblimanual-subnet2-publica.id]
  # depends_on         = [aws_vpc.aws_vpc.oblimanual] # Se agrega dependencia para que el alb se cree luego del vpc
 }
