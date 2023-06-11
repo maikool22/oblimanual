@@ -1,6 +1,6 @@
 resource "aws_security_group" "oblimanual-sg" {
-  name   = "test-terraform-sg"
-  vpc_id = aws_vpc.oblimanual.id # Revisar si puede funcionar asi
+  name        = "test-terraform-sg"
+  vpc_id      = aws_vpc.oblimanual.id # Revisar si puede funcionar asi
   description = "Permite SSH y HTTP"
   ingress {
     from_port   = 22
