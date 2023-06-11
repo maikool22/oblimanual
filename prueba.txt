@@ -7,3 +7,4 @@ bueno llegue, voy a tratar de replicar eso que hicimo
 prueba exitosa de commit
 Debemos mejorar el codigo sumando variables
 hasa aca queda ok el terraform plan
+me da problemas el alb, lo revisare sin sueño 
