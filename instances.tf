@@ -13,6 +13,7 @@ resource "aws_instance" "oblimanual-inst2" {
   key_name               = "vockey"
   vpc_security_group_ids = [aws_security_group.oblimanual-sg]
 }
+# Forma por la cual accederemos a ellas
 
 connection {
     type        = "ssh"
@@ -21,7 +22,9 @@ connection {
     private_key = file("/Users/maikool/downloads/vockey.pem")
   }
 
-  provisioner "remote-exec" {
+# Dejamos prontos los servicio de git y httpd
+
+ provisioner "remote-exec" {
     inline = [
       "sudo yum install -y httpd git",  # -y lo que hace es no pedir confirmacion, instalo httpd y git
       "sudo systemctl start httpd",     # arranco el servicio httpd
@@ -29,3 +32,4 @@ connection {
       
     ]
   }
+
