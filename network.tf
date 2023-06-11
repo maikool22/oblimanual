@@ -92,19 +92,19 @@ resource "aws_route" "oblimanual-default-route" {
 
 #Asociamos subnets a la tabla de ruteo
 
-resource "aws_route_table_association" "oblimanual-rt-assoc" {
+resource "aws_route_table_association" "oblimanual-rt-assoc1" {
   subnet_id      = aws_subnet.oblimanual-subnet1-privada.id
   route_table_id = aws_route_table.oblimanual-rt.id
 }
-resource "aws_route_table_association" "oblimanual-rt-assoc" {
+resource "aws_route_table_association" "oblimanual-rt-assoc2" {
   subnet_id      = aws_subnet.oblimanual-subnet1-publica.id
   route_table_id = aws_route_table.oblimanual-rt.id
 }
-resource "aws_route_table_association" "oblimanual-rt-assoc" {
+resource "aws_route_table_association" "oblimanual-rt-assoc3" {
   subnet_id      = aws_subnet.oblimanual-subnet2-privada.id
   route_table_id = aws_route_table.oblimanual-rt.id
 }
-resource "aws_route_table_association" "oblimanual-rt-assoc" {
+resource "aws_route_table_association" "oblimanual-rt-assoc4" {
   subnet_id      = aws_subnet.oblimanual-subnet2-publica.id
   route_table_id = aws_route_table.oblimanual-rt.id
 }
