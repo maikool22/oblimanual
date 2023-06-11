@@ -15,7 +15,12 @@ resource "aws_instance" "oblimanual-inst2" {
   subnet_id              = aws_subnet.oblimanual-subnet2-publica.id
   vpc_security_group_ids = [aws_security_group.oblimanual-sg]
 }
-# Forma por la cual accederemos a ellas
+
+user_data = <<-EOF
+              #!/bin/bash
+              sudo yum update -y
+              sudo yum install -y vim bind-utils
+              EOF
 
 connection {
   type        = "ssh"
