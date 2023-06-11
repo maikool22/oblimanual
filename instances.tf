@@ -6,6 +6,9 @@ resource "aws_instance" "oblimanual-inst1" {
   key_name               = "vockey"
   subnet_id              = aws_subnet.oblimanual-subnet1-publica.id
   vpc_security_group_ids = [aws_security_group.oblimanual-sg.id]
+  tags = {
+    Name = "oblimanual-inst1"
+  }
 }
 
 resource "aws_instance" "oblimanual-inst2" {
@@ -14,6 +17,9 @@ resource "aws_instance" "oblimanual-inst2" {
   key_name               = "vockey"
   subnet_id              = aws_subnet.oblimanual-subnet2-publica.id
   vpc_security_group_ids = [aws_security_group.oblimanual-sg.id]
+  tags = {
+    Name = "oblimanual-inst2"
+  }
 }
 
 

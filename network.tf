@@ -1,6 +1,6 @@
-#############
-#Creamos VPC#
-#############
+###############
+# Creamos VPC #
+###############
 
 resource "aws_vpc" "oblimanual" {
   cidr_block           = "10.0.0.0/16"
@@ -12,9 +12,9 @@ resource "aws_vpc" "oblimanual" {
   }
 }
 
-##########################################################################
-#Creamos subnets, una privada y una publica por ZA para tener redundancia#
-##########################################################################
+############################################################################
+# Creamos subnets, una privada y una publica por ZA para tener redundancia #
+############################################################################
 
 # Subnets us-east-1a
 
@@ -43,19 +43,19 @@ resource "aws_subnet" "oblimanual-subnet1-publica" {
 resource "aws_subnet" "oblimanual-subnet2-publica" {
   vpc_id                  = aws_vpc.oblimanual.id
   cidr_block              = "10.0.3.0/24"
-  availability_zone       = "us-east-1a"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = "true"
   tags = {
-    Name = "oblimanual-subnet1-publica"
+    Name = "oblimanual-subnet2-publica"
   }
 }
 resource "aws_subnet" "oblimanual-subnet2-privada" {
   vpc_id                  = aws_vpc.oblimanual.id
   cidr_block              = "10.0.4.0/24"
-  availability_zone       = "us-east-1a"
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = "false"
   tags = {
-    Name = "oblimanual-subnet1-publica"
+    Name = "oblimanual-subnet2-publica"
   }
 }
 
