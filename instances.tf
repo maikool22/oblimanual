@@ -14,7 +14,7 @@ resource "aws_instance" "oblimanual-inst1" {
     type        = "ssh"
     user        = "ec2-user"
     host        = self.public_ip
-    private_key = file("~/Descargas/vockey.pem")
+    private_key = file("./vockey.pem")
   }
 
   # Dejamos prontos los servicio de git y httpd
@@ -23,9 +23,9 @@ resource "aws_instance" "oblimanual-inst1" {
     inline = [
       "sudo yum install -y httpd git",              # -y lo que hace es no pedir confirmacion, instalo httpd y git
       "sudo systemctl start httpd",                 # arranco el servicio httpd
-      "sudo systemctl start httpd",                 # dejo habilitado el servicio httpd
-      "sudo touch /var/www/html/index.html",        #creo el index.html vacio
-      "sudo echo 'nodo1' > /var/ww/html/index.html" #hago un echo con el nombre del nodo y se lo pongo en el archivo
+      "sudo systemctl start httpd"                 # dejo habilitado el servicio httpd
+      #"sudo touch /var/www/html/index.html",        #creo el index.html vacio
+      #"sudo echo 'nodo1' > /var/www/html/index.html" #hago un echo con el nombre del nodo y se lo pongo en el archivo
     ]
   }
 }
@@ -45,7 +45,7 @@ resource "aws_instance" "oblimanual-inst2" {
     type        = "ssh"
     user        = "ec2-user"
     host        = self.public_ip
-    private_key = file("~/Descargas/vockey.pem")
+    private_key = file("./vockey.pem")
   }
 
   # Dejamos prontos los servicio de git y httpd
@@ -54,9 +54,9 @@ resource "aws_instance" "oblimanual-inst2" {
     inline = [
       "sudo yum install -y httpd git",              # -y lo que hace es no pedir confirmacion, instalo httpd y git
       "sudo systemctl start httpd",                 # arranco el servicio httpd
-      "sudo systemctl start httpd",                 # dejo habilitado el servicio httpd
-      "sudo touch /var/www/html/index.html",        #creo el index.html vacio
-      "sudo echo 'nodo2' > /var/ww/html/index.html" #hago un echo con el nombre del nodo y se lo pongo en el archivo
+      "sudo systemctl start httpd"                 # dejo habilitado el servicio httpd
+      #"sudo touch /var/www/html/index.html",        #creo el index.html vacio
+      #"sudo echo 'nodo2' > /var/www/html/index.html" #hago un echo con el nombre del nodo y se lo pongo en el archivo
     ]
   }
 }
